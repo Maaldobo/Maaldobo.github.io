@@ -1,0 +1,114 @@
+body{
+    background-color: rgb(128, 119, 175);
+    margin: 0;
+  
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+main{
+    width: 90vw;
+    display: flex;
+    flex-direction: row;
+    align-items: center; 
+    padding: 5px;
+}
+.calculadora {
+ 
+    position: static;
+    padding: 2px;
+    width: 300px; 
+    height: auto; 
+    max-width: 90%; 
+    max-height: 90%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    border-radius: 10px;
+    
+
+
+}
+
+.input {
+    width: 100%;
+    height: 80px;
+    margin: 0;
+    position: static;
+    text-align: right;
+    padding: 5px;
+    align-content: stretch;
+ }
+
+.pad {
+    border: 3px solid rgb(36, 20, 122);
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 5px;
+    width: calc(100% - 20px); 
+    max-width: 280px; 
+    height: auto;
+    max-height: calc(100% - 60px); 
+    background-color: rgb(97, 72, 240);
+    border-radius: 10px;
+    padding: 10px;
+   
+    
+}
+
+#txtInput{
+    border: 3px solid rgb(36, 20, 122);
+    grid-column: span 4;
+    border-radius: 5px;
+    padding-right: 10px;
+    height: 50px;
+    text-align: right;
+    font-size: 100%;
+}
+
+
+
+button {
+    height: 50px;
+    font-size: 18px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: darkgray;
+}
+
+.numero{
+    background-color: rgb(53, 155, 121);
+    border: 2px solid  rgb(16, 88, 64);
+}
+
+.operacion{
+    background-color: rgb(76, 177, 85);
+    border: 2px solid  rgb(29, 107, 36);
+}
+.comando{
+    height: 40px;
+    background-color: rgb(219, 96, 96);
+    border: 2px solid  rgb(100, 17, 17);
+}
+
+.historial {
+    
+    position: static;
+    border: 3px solid rgb(36, 20, 122);
+    max-height: 90%;
+    width: calc(30%);
+    padding: 5px;
+
+    border-radius: 10px;
+    background-color: white;
+}
+
+#cmResultado{
+    grid-column: span 2;
+}
