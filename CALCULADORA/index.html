@@ -1,56 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculadora</title>
     <link href="css/calculadora.css" rel="stylesheet" />
-
-
 </head>
-
 <body>
     <main>
-        <section name="calculadora" id="calculadora" class="calculadora">
+        <div class="container">
+            <div class="calculadora">
+                <section class="pad">
+                    <input placeholder="0" type="text" name="txtInput" id="txtInput" innerText="txtInput"></input>
+                    <button class="comando" onclick="Clear()" id="cmClear">CE</button>
+                    <button class="comando" onclick="Borrar()" id="cmBorrar"> &larr; </button>
 
-            <section class="pad">
-                <input placeholder="0" type="text" name="txtInput" id="txtInput" innerText="txtInput"></input>
-                <button class="comando" onclick="Clear()" id="cmClear">CE</button>
-                <button class="comando" onclick="Borrar()" id="cmBorrar"> &larr; </button>
+                    <button class="numero" onclick="GuardarDato('7')" value="7">7</button>
+                    <button class="numero" onclick="GuardarDato('8')" value="8">8</button>
+                    <button class="numero" onclick="GuardarDato('9')" value="9">9</button>
 
-                <button class="numero" onclick="GuardarDato('7')" value="7">7</button>
-                <button class="numero" onclick="GuardarDato('8')" value="8">8</button>
-                <button class="numero" onclick="GuardarDato('9')" value="9">9</button>
+                    <button class="operacion" onclick="GuardarDato('/')" id="cmDivision" value="/">&#247;</button>
+                    <button class="numero" onclick="GuardarDato('4')" value="4">4</button>
+                    <button class="numero" onclick="GuardarDato('5')" value="5">5</button>
+                    <button class="numero" onclick="GuardarDato('6')" value="6">6</button>
 
-                <button class="operacion" onclick="GuardarDato('/')" id="cmDivision" value="/">&#247;</button>
-                <button class="numero" onclick="GuardarDato('4')" value="4">4</button>
-                <button class="numero" onclick="GuardarDato('5')" value="5">5</button>
-                <button class="numero" onclick="GuardarDato('6')" value="6">6</button>
+                    <button class="operacion" onclick="GuardarDato('*')" id="cmMultiplicacion" value=*>&#215;</button>
+                    <button class="numero" onclick="GuardarDato('1')" value="1">1</button>
+                    <button class="numero" onclick="GuardarDato('2')" value="2">2</button>
+                    <button class="numero" onclick="GuardarDato('3')" value='3'>3</button>
 
-                <button class="operacion" onclick="GuardarDato('*')" id="cmMultiplicacion" value=*>&#215;</button>
-                <button class="numero" onclick="GuardarDato('1')" value="1">1</button>
-                <button class="numero" onclick="GuardarDato('2')" value="2">2</button>
-                <button class="numero" onclick="GuardarDato('3')" value='3'>3</button>
-
-                <button class="operacion" onclick="GuardarDato('-')" id="cmResta" value="-">-</button>
-                
-
-                <button class="numero" onclick="GuardarDato('.')" value=".">.</button>
-                <button class="numero" onclick="GuardarDato('0')" value="0">0</button>
-                <button class="comando" onclick="MostrarResultadoEval()" id="cmResultado" value="=">=</button>
-                <button class="operacion" onclick="GuardarDato('+')" id="+" value="+">+</button>
-                
-
-
-
-
-
-
-            </section>
-        </section>
+                    <button class="operacion" onclick="GuardarDato('-')" id="cmResta" value="-">-</button>
+                    
+                    <button class="numero" onclick="GuardarDato('.')" value=".">.</button>
+                    <button class="numero" onclick="GuardarDato('0')" value="0">0</button>
+                    <button class="comando" onclick="MostrarResultadoEval()" id="cmResultado" value="=">=</button>
+                    <button class="operacion" onclick="GuardarDato('+')" id="+" value="+">+</button>
+                </section>
+            </div>
+            <div class="historial" id="historial"></div>
+        </div>
+        <div class="error" id="txtError"></div>
     </main>
 <script src="./js/calculadora.js"></script>
 </body>
-
 </html>

@@ -1,33 +1,62 @@
 body{
     background-color: rgb(128, 119, 175);
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.container{
+    width: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 }
 .calculadora {
-    top: 50%; 
-    left: 50%; 
-    transform: translate(-50%, -50%);   
-      
-    position: fixed;
-    padding: 2px;
-
+    padding: 10px;
     width: 300px; 
     height: auto; 
     max-width: 90%; 
     max-height: 90%;
-
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
-
     align-items: center;
     border-radius: 10px;
-/*mejorar centrado 
-body 100vh
-*/
+}
+.historial {
+    padding: 10px;
+    width: 300px; 
+    height: 100%; 
+    max-width: 90%; 
+    max-height: 90%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-radius: 10px;
+    border: 2px solid  black;
+    margin-left: 20px;
+    background-color: white;
+    grid-column: span 4;
+}
+.error {
+    padding: 10px;
+    width: 300px; 
+    height: auto; 
+    max-width: 90%; 
+    max-height: 90%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-radius: 10px;
+    margin-top: 20px;
+    color: red;
 
 }
-
 .input {
-    width: calc(100%);
+    width: 100%;
     height: 80px;
     margin: 0;
     position: static;
@@ -35,7 +64,6 @@ body 100vh
     padding: 5px;
     align-content: stretch;
  }
-
 .pad {
     border: 3px solid rgb(36, 20, 122);
     display: grid;
@@ -48,10 +76,7 @@ body 100vh
     background-color: rgb(97, 72, 240);
     border-radius: 10px;
     padding: 10px;
-   
-    
 }
-
 #txtInput{
     border: 3px solid rgb(36, 20, 122);
     grid-column: span 4;
@@ -68,11 +93,7 @@ body 100vh
 #cmClear {
     grid-column: span 2;
     height: 40px; 
-    
 }
-
-
-
 button {
     height: 60px;
     width: auto; 
@@ -80,16 +101,13 @@ button {
     cursor: pointer;
     border-radius: 5px;
 }
-
 button:hover {
     background-color: darkgray;
 }
-
 .numero{
     background-color: rgb(53, 155, 121);
     border: 2px solid  rgb(16, 88, 64);
 }
-
 .operacion{
     background-color: rgb(76, 177, 85);
     border: 2px solid  rgb(29, 107, 36);
