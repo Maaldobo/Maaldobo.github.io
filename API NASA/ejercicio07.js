@@ -20,6 +20,7 @@ async function obtenerDatos(name, day) {
         });
     } catch (error) {
         console.error('Error recopilando foto de:', name);
+        imgBuffer.push('rover.jpg')
     } finally {
         llenarCarrusel('carousel' + name, imgBuffer)
         console.log(imgBuffer)
@@ -45,12 +46,9 @@ function llenarCarrusel(carruselId, imgBuffer) {
         let carouselItem = document.createElement('div');
         carouselItem.className = 'carousel-item d-flex justify-content-center align-items-center';
         let img = document.createElement('img');
-        if (imgBuffer.length === 0) {
-            img.setAttribute('src', 'rover.jpg');
-        } else {
-            img.setAttribute('src', imgSrc);
-            img.setAttribute('alt', 'Imagen del rover');
-        }
+
+        img.setAttribute('src', imgSrc);
+        img.setAttribute('alt', 'Imagen del rover');
         img.className = 'd-block w-75 rounded-pill mx-auto d-block';
         img.style.objectFit = 'cover';
         img.setAttribute('width', '800');
