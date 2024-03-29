@@ -11,7 +11,7 @@ async function obtenerDatos(name, day) {
         const response = await fetch(urlFin);
         const data = await response.json();
         data.photos.forEach((element) => {
-            if (("NAVCAM" === element.camera.name || "FHAZ" === element.camera.name|| "PANCAM"=== element.camera.name) && i < 10) {
+            if (("NAVCAM" === element.camera.name || "FHAZ" === element.camera.name || "PANCAM" === element.camera.name) && i < 10) {
                 let imgSrc = element.img_src;
                 imgBuffer.push(imgSrc);
                 console.log(imgSrc);
@@ -27,27 +27,37 @@ async function obtenerDatos(name, day) {
 }
 
 function llenarCarrusel(carruselId, imgBuffer) {
-    let carrusel = document.getElementById(carruselId)
+    let carrusel = document.getElementById(carruselId);
 
-    let innerCarousel = carrusel.getElementsByClassName('carousel-inner')[0]
-    innerCarousel.innerHTML = ''
+    let innerCarousel = carrusel.getElementsByClassName('carousel-inner')[0];
+    innerCarousel.innerHTML = '';
+
+    let indicatorsContainer = carrusel.getElementsByClassName('carousel-indicators')[0];
+    if (indicatorsContainer) {
+        indicatorsContainer.innerHTML = ''; 
+    } else {
+        indicatorsContainer = document.createElement('div');
+        indicatorsContainer.classList.add('carousel-indicators');
+        carrusel.appendChild(indicatorsContainer);
+    }
 
     imgBuffer.forEach((imgSrc, index) => {
         let carouselItem = document.createElement('div');
-        carouselItem.className = 'carousel-item d-flex justify-content-center align-items-center ';
+        carouselItem.className = 'carousel-item d-flex justify-content-center align-items-center';
+        let img = document.createElement('img');
         if (imgBuffer.length === 0) {
-            imgBuffer.push('imagen_predeterminada.jpg');
+            img.setAttribute('src', 'rover.jpg');
+        } else {
+            img.setAttribute('src', imgSrc);
+            img.setAttribute('alt', 'Imagen del rover');
         }
-        let img = document.createElement('img'); 
         img.className = 'd-block w-75 rounded-pill mx-auto d-block';
-        img.style.objectFit = 'cover';  
-        img.setAttribute('src', imgSrc); 
-        img.setAttribute('width', '800'); 
-        img.setAttribute('height', '400'); 
-        img.setAttribute('role', 'img'); 
-        img.setAttribute('alt', 'Imagen del rover'); 
+        img.style.objectFit = 'cover';
+        img.setAttribute('width', '800');
+        img.setAttribute('height', '400');
+        img.setAttribute('role', 'img');
 
-        if (imgSrc === 'imagen_predeterminada.jpg') {
+        if (imgSrc === 'rover.jpg') {
             let text = document.createElement('p');
             text.textContent = 'IMAGENES NO ENCONTRADAS';
             text.style.position = 'absolute';
@@ -60,13 +70,26 @@ function llenarCarrusel(carruselId, imgBuffer) {
         }
 
         if (index === 0) {
-            carouselItem.classList.add('active');  // Make the first item active
+            carouselItem.classList.add('active');
         }
 
-        carouselItem.appendChild(img); 
+        carouselItem.appendChild(img);
         innerCarousel.appendChild(carouselItem);
-    })
+
+
+        let indicator = document.createElement('button');
+        indicator.setAttribute('type', 'button');
+        indicator.setAttribute('data-bs-target', `#${carruselId}`);
+        indicator.setAttribute('data-bs-slide-to', index.toString());
+        if (index === 0) {
+            indicator.classList.add('active');
+            indicator.setAttribute('aria-current', 'true');
+        }
+        indicator.setAttribute('aria-label', `Slide ${index + 1}`);
+        indicatorsContainer.appendChild(indicator);
+    });
 }
+
 
 
 
@@ -76,17 +99,27 @@ function generarNumeroAleatorio() {
     return numeroFormateado;
 }
 
-function actualizarCabecera() {
+function actualizarCabecera(day) {
 
     const cabeceraElement = document.getElementById('cabeceraDiaFotos')
     if (cabeceraElement) {
-        cabeceraElement.textContent = `Día de las fotos: ${diaFotos}`
+        cabeceraElement.textContent = `${day}`
 
+    }
 }
+
+actualizarCabecera(diaFotos)
+
+async function cargarFotos(day) {
+    await obtenerDatos("Opportunity", day);
+    await obtenerDatos("Curiosity", day);
+    await obtenerDatos("Spirit", day);
 }
 
-actualizarCabecera()
+cargarFotos().then(() => {
+    console.log("Todos los datos y fotos han sido cargados");
+}).catch((error) => {
+    console.error("Error al cargar datos y fotos:", error);
+})
 
-obtenerDatos("Opportunity", diaFotos)
-obtenerDatos("Curiosity", diaFotos)
-obtenerDatos("Spirit", diaFotos)
+cargarFotos(diaFotos)

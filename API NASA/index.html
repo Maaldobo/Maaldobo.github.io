@@ -8,20 +8,67 @@
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link href="ejercicio07.css" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
+  <link href="ejercicio07.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
 </head>
 
-<body style="font-family: 'Orbitron', sans-serif;" >
-  <div class="d-flex flex-column m-1" style="margin: 20px 0; height: 100px;">
-    <p class="fs-1 fw-bolder text-center" id="cabeceraDiaFotos" style="margin-top: 50px; margin-bottom: 50px;">Día de las fotos: </p>
+<body class="d-flex flex-column justify-content-center align-items-center" style="font-family: 'Orbitron', sans-serif;">
+
+
+  <nav class="navbar navbar-expand-lg rounded-2 text-light m-1 p-1" style="width: 90vw; background-color: black;">
+    <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="#carouselOpportunity" style="color: rgb(4, 196, 84);">Opportunity</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#carouselCuriosity" style="color: rgb(4, 196, 84);">Curiosity</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#carouselSpirit" style="color: rgb(4, 196, 84);">Spirit</a>
+          </li>
+        </ul>
+        
+      </div>
+    </div>
+
+  </nav>
+
+<div class="d-flex  flex-row p-3">
+
+
+  <div class="d-flex rounded-5 flex-column justify-content-center align-items-center"
+    style="border: 5px solid grey;  color: rgb(4, 196, 84); background-color: black;">
+    <p class="fs-5 fw-bolder m-0 text-center p-2">DIA DE LA MISION ACTUAL </p>
+    <p class="fs-1 fw-bolder m-0 text-center" id="cabeceraDiaFotos"></p>
   </div>
  
+    <div class="d-flex rounded-5 flex-column p-2 justify-content-center align-items-center"
+      style="border: 5px solid grey;  color: rgb(4, 196, 84); background-color: black;">
+      <p class="fs-5 fw-bolder m-0 text-center p-2">Ingrese el día de misión (1-1000)</p>
+      <input id="day" class="form-control p-1 " value="" style="color: rgb(4, 196, 84); background-color: black;">
+      <a onclick="cargarFotos(document.getElementById('day').value), actualizarCabecera(document.getElementById('day').value)" class="btn btn-outline-success m-1">CARGAR FOTOS</a>
+    </div>
+  </div>
+</div>
+
+</div>
+
   <div class="d-flex flex-column justify-content-center align-items-center gap-3" style=" margin-top: 2rem;">
     <div class="container m-0 border-0 p-3" style="background-color: rgba(255, 0, 0, 0.25);">
-      <h4 class="text-center ">Opportunity</h4>
-
+      <div class="container m-1 border-0 p-3">
+        <h4 class="text-center ">OPPORTUNITY</h4>
+      </div>
       <div id="carouselOpportunity" class="carousel slide carousel-fade">
+        <div class="carousel-indicators">
+
+        </div>
+
         <div class="carousel-inner">
 
         </div>
@@ -38,9 +85,13 @@
 
     <div class="container m-0 border-0  p-3" style="background-color: rgba(255, 0, 0, 0.25);">
       <div class="container m-1 border-0 p-3">
-        <h4 class="text-center ">Curiosity</h4>
+        <h4 class="text-center ">CURIOSITY</h4>
       </div>
       <div id="carouselCuriosity" class="carousel slide carousel-fade">
+        <div class="carousel-indicators">
+
+        </div>
+
         <div class="carousel-inner ">
 
         </div>
@@ -56,8 +107,14 @@
     </div>
     <div class="container m-0 border-0 p-3" style="background-color: rgba(255, 0, 0, 0.25);">
 
-      <h4 class="text-center opacity-100">Spirit</h4>
+      <div class="container m-1 border-0 p-3">
+        <h4 class="text-center ">SPIRIT</h4>
+      </div>
       <div id="carouselSpirit" class="carousel slide carousel-fade">
+        <div class="carousel-indicators">
+
+        </div>
+
         <div class="carousel-inner ">
 
         </div>
